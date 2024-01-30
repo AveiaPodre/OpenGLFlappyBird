@@ -13,37 +13,129 @@
 #include <stdio.h>
 
 class Object{
-public:
-    Object(const std::vector<float>& vertices, float x, float y, float z)
-        : vertices(vertices), xCoord(x), yCoord(y), zCoord(z) {}
-
-    void draw() {
-        glPushMatrix();  
-        glTranslatef(xCoord, yCoord, zCoord);  
-
-        glBegin(GL_TRIANGLES);
-        for (size_t i = 0; i < vertices.size(); i += 3) {
-            glVertex3f(vertices[i], vertices[i + 1], vertices[i + 2]);
-        }
-        glEnd();
-
-        glPopMatrix(); 
-    }
-
 private:
-    std::vector<float> vertices;  
     float xCoord;  
     float yCoord;  
     float zCoord; 
+    
+public:
+    Object() : xCoord(0.0f), yCoord(0.0f), zCoord(0.0f) {}
+
+    Object(float x, float y, float z) : xCoord(x), yCoord(y), zCoord(z) {}
+    
+    float getXCoord() const {
+        return xCoord;
+    }
+
+    float getYCoord() const {
+        return yCoord;
+    }
+
+    float getZCoord() const {
+        return zCoord;
+    }
+
+    void setXCoord(float x) {
+        xCoord = x;
+    }
+
+    void setYCoord(float y) {
+        yCoord = y;
+    }
+
+    void setZCoord(float z) {
+        zCoord = z;
+    }
 };
 
 class Player : public Object {
+private:
+    bool isJumping;
+
 public:
-    Player(const std::vector<float>& vertices, float x, float y, float z, float speed, float strength)
-        : Object(vertices, x, y, z), playerSpeed(speed), jumpStrength(strength) {}
+    Player() : Object(), isJumping(false) {}
+
+    Player(float x, float y, float z, bool jumping) : Object(x, y, z), isJumping(jumping) {}
+
+    bool getIsJumping() const {
+        return isJumping;
+    }
+
+    void setIsJumping(bool jumping) {
+        isJumping = jumping;
+    }
+};
+
+class Pipe : public Object {
+public:
+    Pipe() : Object() {}
+
+    Pipe(float x, float y, float z) : Object(x, y, z) {}
 
 private:
-    float playerSpeed;
-    float jumpStrength;
-    bool isJumping = false;
+	
+};
+
+template <typename Item>
+class LinkedList {
+private:
+    class Node {
+    public:
+        Item data;
+        Node* next;
+
+        Node(const Item& item) : data(item), next(nullptr) {}
+    };
+
+    Node* head;
+
+public:
+    LinkedList() : head(nullptr) {}
+
+    ~LinkedList() {
+        clear();
+    }
+
+    void enqueue(const Item& item) {
+        Node* newNode = new Node(item);
+        if (!head) {
+            head = newNode;
+        } else {
+            Node* current = head;
+            while (current->next) {
+                current = current->next;
+            }
+            current->next = newNode;
+        }
+    }
+
+    bool dequeue(Item& item) {
+        if (!head) {
+            return false;
+        }
+
+        Node* temp = head;
+        item = temp->data;
+        head = head->next;
+        delete temp;
+
+        return true;
+    }
+
+    void clear() {
+        while (head) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
+
+    void display() const {
+        Node* current = head;
+        while (current) {
+            std::cout << current->data << " ";
+            current = current->next;
+        }
+        std::cout << std::endl;
+    }
 };

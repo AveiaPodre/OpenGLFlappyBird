@@ -16,6 +16,7 @@
 	<Files>
 		<File Name="main.cpp"/>
 		<File Name="Object.cpp"/>
+		<File Name="LinkedList.cpp"/>
 	</Files>
 	<AppIcon>
 		0000010001003030000001002000A82500001600000028000000300000006000
