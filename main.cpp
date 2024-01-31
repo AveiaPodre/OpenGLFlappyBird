@@ -11,14 +11,14 @@
 
 #include <iostream>
 #include <stdio.h>
-#include "object.cpp"
+#include "Object.cpp"
 
 
 void init(void);
 void keyboard (unsigned char key, int x, int y);
 void display(void);
 void reshape (int w, int h);
-void update(int value)
+void update(int value);
 
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
@@ -61,4 +61,8 @@ void keyboard (unsigned char key, int x, int y){
 
 void display(void){
 
+}
+
+void update(int){
+	
 }

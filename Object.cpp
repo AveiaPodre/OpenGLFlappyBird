@@ -84,13 +84,13 @@ private:
         Item data;
         Node* next;
 
-        Node(const Item& item) : data(item), next(nullptr) {}
+        Node(const Item& item) : data(item), next(NULL) {}
     };
 
     Node* head;
 
 public:
-    LinkedList() : head(nullptr) {}
+    LinkedList() : head(NULL) {}
 
     ~LinkedList() {
         clear();
