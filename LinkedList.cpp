@@ -7,7 +7,7 @@ private:
     public:
         Item data;
         Node* next;
-
+        
         Node(const Item& item) : data(item), next(NULL) {}
     };
 
