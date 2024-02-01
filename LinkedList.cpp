@@ -54,12 +54,13 @@ public:
         }
     }
 
-    void display() const {
+    void drawList() const {
         Node* current = head;
         while (current) {
-            std::cout << current->data << " ";
+            current->data.drawPipe();
             current = current->next;
         }
         std::cout << std::endl;
     }
+	 
 };
