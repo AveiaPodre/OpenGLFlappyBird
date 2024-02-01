@@ -4,10 +4,10 @@
 		<File Name="main.cpp" Top="Yes" Tabpos="1" TopLine="48">
 			<Cursor Line="70" Column="22"/>
 		</File>
-		<File Name="Object.cpp" Top="No" Tabpos="3" TopLine="48">
+		<File Name="Object.cpp" Top="No" Tabpos="2" TopLine="48">
 			<Cursor Line="71" Column="23"/>
 		</File>
-		<File Name="LinkedList.cpp" Top="No" Tabpos="4" TopLine="1">
+		<File Name="LinkedList.cpp" Top="No" Tabpos="3" TopLine="1">
 			<Cursor Line="10" Column="1"/>
 		</File>
 	</Files>
