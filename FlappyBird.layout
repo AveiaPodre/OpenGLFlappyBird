@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout>
 	<Files>
-		<File Name="main.cpp" Top="Yes" Tabpos="1" TopLine="1">
-			<Cursor Line="35" Column="1"/>
+		<File Name="main.cpp" Top="No" Tabpos="1" TopLine="92">
+			<Cursor Line="74" Column="17"/>
 		</File>
-		<File Name="Object.cpp" Top="No" Tabpos="2" TopLine="48">
-			<Cursor Line="71" Column="23"/>
+		<File Name="Object.cpp" Top="No" Tabpos="2" TopLine="25">
+			<Cursor Line="15" Column="13"/>
+			<Selection Line="15" Column="1"/>
 		</File>
-		<File Name="LinkedList.cpp" Top="No" Tabpos="3" TopLine="1">
-			<Cursor Line="10" Column="1"/>
+		<File Name="LinkedList.cpp" Top="Yes" Tabpos="3" TopLine="12">
+			<Cursor Line="60" Column="22"/>
 		</File>
 	</Files>
 </Layout>
