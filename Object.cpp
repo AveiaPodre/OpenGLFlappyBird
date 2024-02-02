@@ -68,8 +68,8 @@ public:
  	void drawPlayer(){
  		glPushMatrix();
 		glTranslatef(getXCoord(), getYCoord(), getZCoord());
-		glColor3f(1.0f, 0.0f, 0.0f);
-	    glutSolidCube(0.5f);
+		glColor3f(1.0f, 0.0f , 0.0f);
+	    glutSolidCube(0.4f);
 	    glPopMatrix();
 	}
     
@@ -84,5 +84,98 @@ public:
 
     Pipe(float x, float y, float z, float hole) : Object(x, y, z), gap(hole) {}
 
+<<<<<<< Updated upstream
 
+=======
+	void drawPipe(float decremento){
+		glPushMatrix();
+			glTranslatef(getXCoord(), getYCoord(), getZCoord());
+			glColor3f(0.0f, 1.0f, 0.0f);
+		
+			//Metade de cima
+			glPushMatrix();
+				glTranslatef(0.0, gap/2, 0.0);
+				glBegin(GL_QUADS);
+				    // Face frontal
+				    glVertex3f(0.5, 0.0, 0.5);
+				    glVertex3f(0.5, 15.0, 0.5);
+				    glVertex3f(-0.5, 15.0, 0.5);
+				    glVertex3f(-0.5, 0.0, 0.5);
+				
+				    // Face traseira
+				    glVertex3f(0.5, 0.0, -0.5);
+				    glVertex3f(0.5, 15.0, -0.5);
+				    glVertex3f(-0.5, 15.0, -0.5);
+				    glVertex3f(-0.5, 0.0, -0.5);
+				
+				    // Face superior
+				    glVertex3f(0.5, 15.0, 0.5);
+				    glVertex3f(0.5, 15.0, -0.5);
+				    glVertex3f(-0.5, 15.0, -0.5);
+				    glVertex3f(-0.5, 15.0, 0.5);
+				
+				    // Face inferior
+				    glVertex3f(0.5, 0.0, 0.5);
+				    glVertex3f(0.5, 0.0, -0.5);
+				    glVertex3f(-0.5, 0.0, -0.5);
+				    glVertex3f(-0.5, 0.0, 0.5);
+				
+				    // Face esquerda
+				    glVertex3f(-0.5, 0.0, 0.5);
+				    glVertex3f(-0.5, 15.0, 0.5);
+				    glVertex3f(-0.5, 15.0, -0.5);
+				    glVertex3f(-0.5, 0.0, -0.5);
+				
+				    // Face direita
+				    glVertex3f(0.5, 0.0, 0.5);
+				    glVertex3f(0.5, 15.0, 0.5);
+				    glVertex3f(0.5, 15.0, -0.5);
+				    glVertex3f(0.5, 0.0, -0.5);					
+				glEnd();
+			glPopMatrix();
+			
+			// Metade de baixo
+			glPushMatrix();
+				glTranslatef(0.0, -gap/2, 0.0);
+				glBegin(GL_QUADS);
+				    // Face frontal
+				    glVertex3f(0.5, 0.0, 0.5);
+				    glVertex3f(0.5, -15.0, 0.5);
+				    glVertex3f(-0.5, -15.0, 0.5);
+				    glVertex3f(-0.5, 0.0, 0.5);
+				
+				    // Face traseira
+				    glVertex3f(0.5, 0.0, -0.5);
+				    glVertex3f(0.5, -15.0, -0.5);
+				    glVertex3f(-0.5, -15.0, -0.5);
+				    glVertex3f(-0.5, 0.0, -0.5);
+				
+				    // Face superior
+				    glVertex3f(0.5, -15.0, 0.5);
+				    glVertex3f(0.5, -15.0, -0.5);
+				    glVertex3f(-0.5, -15.0, -0.5);
+				    glVertex3f(-0.5, -15.0, 0.5);
+				
+				    // Face inferior
+				    glVertex3f(0.5, 0.0, 0.5);
+				    glVertex3f(0.5, 0.0, -0.5);
+				    glVertex3f(-0.5, 0.0, -0.5);
+				    glVertex3f(-0.5, 0.0, 0.5);
+				
+				    // Face esquerda
+				    glVertex3f(-0.5, 0.0, 0.5);
+				    glVertex3f(-0.5, -15.0, 0.5);
+				    glVertex3f(-0.5, -15.0, -0.5);
+				    glVertex3f(-0.5, 0.0, -0.5);
+				
+				    // Face direita
+				    glVertex3f(0.5, 0.0, 0.5);
+				    glVertex3f(0.5, -15.0, 0.5);
+				    glVertex3f(0.5, -15.0, -0.5);
+				    glVertex3f(0.5, 0.0, -0.5);					
+				glEnd();
+			glPopMatrix();
+	    glPopMatrix();		
+	}
+>>>>>>> Stashed changes
 };

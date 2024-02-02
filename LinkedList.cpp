@@ -53,11 +53,47 @@ public:
             delete temp;
         }
     }
+    
+    class Iterator {
+    private:
+        Node* current;
 
+<<<<<<< Updated upstream
     void display() const {
         Node* current = head;
         while (current) {
             std::cout << current->data << " ";
+=======
+    public:
+        Iterator(Node* node) : current(node) {}
+
+        Item& operator*() const {
+            return current->data;
+        }
+
+        Iterator& operator++() {
+            current = current->next;
+            return *this;
+        }
+
+        bool operator!=(const Iterator& other) const {
+            return current != other.current;
+        }
+    };
+
+    Iterator begin() const {
+        return Iterator(head);
+    }
+
+    Iterator end() const {
+        return Iterator(NULL);
+    }
+
+    void drawList(float decremento) const {
+        Node* current = head;
+        while (current) {
+            current->data.drawPipe(decremento);
+>>>>>>> Stashed changes
             current = current->next;
         }
         std::cout << std::endl;

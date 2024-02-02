@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout>
 	<Files>
+<<<<<<< Updated upstream
 		<File Name="main.cpp" Top="Yes" Tabpos="1" TopLine="48">
 			<Cursor Line="70" Column="22"/>
 		</File>
@@ -9,6 +10,16 @@
 		</File>
 		<File Name="LinkedList.cpp" Top="No" Tabpos="4" TopLine="1">
 			<Cursor Line="10" Column="1"/>
+=======
+		<File Name="main.cpp" Top="Yes" Tabpos="1" TopLine="117">
+			<Cursor Line="129" Column="21"/>
+		</File>
+		<File Name="Object.cpp" Top="No" Tabpos="2" TopLine="64">
+			<Cursor Line="72" Column="23"/>
+		</File>
+		<File Name="LinkedList.cpp" Top="No" Tabpos="3" TopLine="60">
+			<Cursor Line="74" Column="45"/>
+>>>>>>> Stashed changes
 		</File>
 	</Files>
 </Layout>
