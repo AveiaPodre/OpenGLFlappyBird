@@ -58,12 +58,6 @@ public:
     private:
         Node* current;
 
-<<<<<<< Updated upstream
-    void display() const {
-        Node* current = head;
-        while (current) {
-            std::cout << current->data << " ";
-=======
     public:
         Iterator(Node* node) : current(node) {}
 
@@ -93,7 +87,6 @@ public:
         Node* current = head;
         while (current) {
             current->data.drawPipe(decremento);
->>>>>>> Stashed changes
             current = current->next;
         }
         std::cout << std::endl;

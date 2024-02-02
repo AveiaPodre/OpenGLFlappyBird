@@ -84,9 +84,6 @@ public:
 
     Pipe(float x, float y, float z, float hole) : Object(x, y, z), gap(hole) {}
 
-<<<<<<< Updated upstream
-
-=======
 	void drawPipe(float decremento){
 		glPushMatrix();
 			glTranslatef(getXCoord(), getYCoord(), getZCoord());
@@ -177,5 +174,4 @@ public:
 			glPopMatrix();
 	    glPopMatrix();		
 	}
->>>>>>> Stashed changes
 };

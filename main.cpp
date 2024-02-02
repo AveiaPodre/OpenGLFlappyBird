@@ -11,6 +11,8 @@
 
 #include <iostream>
 #include <stdio.h>
+#include <cstdlib>
+#include <ctime>
 #include "Object.cpp"
 #include "LinkedList.cpp"
 #include "glut_text.h"
@@ -34,14 +36,15 @@ void keyboard (unsigned char key, int x, int y);
 void display(void);
 void reshape (int w, int h);
 void update(int value);
+float randomNumber(float min, float max);
 
 Player player = Player::Player(xPlayer, yPlayer, zPlayer, false);
-LinkedList<Pipe> pipeList();
-Pipe pipe1 = Pipe::Pipe(400, 0, 0, 100);
-Pipe pipe2 = Pipe::Pipe(500, 0, 0, 200);
-Pipe pipe3 = Pipe::Pipe(600, 0, 0, 50);
+LinkedList<Pipe> pipeList;
 
 int main(int argc, char** argv) {
+    // Inicializa a semente para a função rand() usando o tempo atual
+    std::srand(static_cast<unsigned int>(std::time(NULL)));	
+	
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glEnable(GL_DEPTH_TEST);
@@ -49,15 +52,9 @@ int main(int argc, char** argv) {
     glutInitWindowPosition(0, 0);
     glutCreateWindow("Flappy Bird 3D");
     
-<<<<<<< Updated upstream
-    //pipeList.enqueue(pipe1);
-    //pipeList.enqueue(pipe2);
-    //pipeList.enqueue(pipe3);
-=======
     pipeList.enqueue(Pipe(0, randomNumber(-2.0, 2.0), 0, 1.8));
     pipeList.enqueue(Pipe(4, randomNumber(-2.0, 2.0), 0, 1.8));
     pipeList.enqueue(Pipe(8, randomNumber(-2.0, 2.0), 0, 1.8));
->>>>>>> Stashed changes
 
 	// Funções de Callback
     glutDisplayFunc(display);
@@ -81,13 +78,8 @@ void reshape (int w, int h){
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     //gluPerspective(45.0f, (float)w / (float)h, 1.0f, 100.0f);
-<<<<<<< Updated upstream
-    gluPerspective(30, (float)w/(float)h , 5.0, 100.0); //(angulo, aspecto, ponto_proximo, ponto distante)
-    gluLookAt(0.0,3.0,10.0,  // posicao da camera (olho)
-=======
     gluPerspective(30, (float)w/(float)h , 5.0, 50.0); //(angulo, aspecto, ponto_proximo, ponto distante)
     gluLookAt(0.0,1.0,9.0,  // posicao da camera (olho)
->>>>>>> Stashed changes
               0.0,0.0,0.0,  // direcao da camera (geralmente para centro da cena)
               0.0,1.0,0.0); // sentido ou orientacao da camera (de cabeca para cima)
 
@@ -136,11 +128,7 @@ void display(void){
     // Desenha o jogador e os obstáculos
 	//drawBackground();
     player.drawPlayer();
-<<<<<<< Updated upstream
-
-=======
 	pipeList.drawList(decremento);
->>>>>>> Stashed changes
     //drawObstacle();
 
     glutSwapBuffers();
@@ -178,4 +166,15 @@ void update(int value) {
     // Atualiza a tela
     glutPostRedisplay();
     glutTimerFunc(10, update, 0);
+}
+
+float randomNumber(float min, float max) {
+    // Gera um número inteiro aleatório no intervalo [min, max]
+    int range = static_cast<int>((max - min) * 1000.0f) + 1;
+    int numeroInteiro = std::rand() % range + static_cast<int>(min * 1000.0f);
+
+    // Converte o número inteiro para um número de ponto flutuante no intervalo [min, max]
+    float numeroFloat = static_cast<float>(numeroInteiro) / 1000.0f;
+
+    return numeroFloat;
 }
