@@ -20,7 +20,7 @@
 float xPlayer = -3.5;
 float yPlayer = 0;
 float zPlayer = 0;
-
+ 
 float xEP = xPlayer;
 float xDP = xPlayer + 0.4;
 
@@ -30,6 +30,8 @@ float decremento = -0.02f;
 
 int score = 0;
 bool gameOver = false;
+
+float gap = 1.2;
 
 void init(void);
 void keyboard (unsigned char key, int x, int y);
@@ -52,9 +54,9 @@ int main(int argc, char** argv) {
     glutInitWindowPosition(0, 0);
     glutCreateWindow("Flappy Bird 3D");
     
-    pipeList.enqueue(Pipe(0, randomNumber(-2.0, 2.0), 0, 1.8));
-    pipeList.enqueue(Pipe(4, randomNumber(-2.0, 2.0), 0, 1.8));
-    pipeList.enqueue(Pipe(8, randomNumber(-2.0, 2.0), 0, 1.8));
+    pipeList.enqueue(Pipe(0, randomNumber(-2.0, 2.0), 0, gap));
+    pipeList.enqueue(Pipe(4, randomNumber(-2.0, 2.0), 0, gap));
+    pipeList.enqueue(Pipe(8, randomNumber(-2.0, 2.0), 0, gap));
 
 	// Funções de Callback
     glutDisplayFunc(display);
@@ -103,14 +105,14 @@ void keyboard (unsigned char key, int x, int y){
 
 void drawBackground(){
 	glPushMatrix();
-	glTranslatef(0.0, 0.0, -10.0);
-	glColor3f(0.19f, 0.75f, 0.87f);
-	glBegin(GL_QUADS);
-	glVertex3f(-10.0f, -10.0f, 0.0f);
-	glVertex3f(-10.0f, 10.0f, 0.0f);
-	glVertex3f(10.0f, 10.0f, 0.0f);
-	glVertex3f(10.0f, -10.0f, 0.0f);
-	glEnd();
+		glTranslatef(0.0, 0.0, -10.0);
+		glColor3f(0.19f, 0.75f, 0.87f);
+		glBegin(GL_QUADS);
+			glVertex3f(-10.0f, -10.0f, 0.0f);
+			glVertex3f(-10.0f, 10.0f, 0.0f);
+			glVertex3f(10.0f, 10.0f, 0.0f);
+			glVertex3f(10.0f, -10.0f, 0.0f);
+		glEnd();
 	glPopMatrix();
 }
 
@@ -152,11 +154,11 @@ void update(int value) {
 	        pipe.setXCoord(pipe.getXCoord()+decremento);
 	        if (pipe.getXCoord() < -4.0f){
 				pipeList.dequeue(pipe);
-				pipeList.enqueue(Pipe(8, randomNumber(-2.0, 2.0), 0, 1.6));
+				pipeList.enqueue(Pipe(8, randomNumber(-2.0, 2.0), 0, gap));
 				score++;
 			}
 			if (xEP <= (pipe.getXCoord()+1.0) && xDP >= pipe.getXCoord()){
-				if ((player.getYCoord() <= pipe.getYCoord()-0.8) || (player.getYCoord()+0.4) >= pipe.getYCoord()+ 0.8){
+				if (((player.getYCoord()) <= pipe.getYCoord()-(gap/2)) || (player.getYCoord()) >= pipe.getYCoord()+ (gap/2)){
 					gameOver = true;
 				}
 			}

@@ -67,9 +67,9 @@ public:
  	
  	void drawPlayer(){
  		glPushMatrix();
-		glTranslatef(getXCoord(), getYCoord(), getZCoord());
-		glColor3f(1.0f, 0.0f , 0.0f);
-	    glutSolidCube(0.4f);
+			glTranslatef(getXCoord(), getYCoord(), getZCoord());
+			glColor3f(1.0f, 0.0f , 0.0f);
+	    	glutSolidCube(0.4f);
 	    glPopMatrix();
 	}
     
